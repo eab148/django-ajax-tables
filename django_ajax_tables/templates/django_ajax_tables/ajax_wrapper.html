@@ -1,7 +1,7 @@
 <div id="{{ ajax_divname }}"></div>
 
 <script type='text/javascript'>
-    function _remove_spinner() {
+    function _removeSpinner() {
         $(".spinner-border").fadeOut()
         let content = document.getElementById('content');
         content.classList.remove("invisible")
@@ -34,7 +34,7 @@
                     _replace_links_{{ ajax_divname }}(url, div.getElementsByTagName('TH'));
                     _replace_links_{{ ajax_divname }}(url, div.getElementsByClassName('pagination'));
 
-                    _remove_spinner()
+                    _removeSpinner()
                 }
             }
         };
