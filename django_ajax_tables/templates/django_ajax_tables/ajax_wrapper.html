@@ -1,6 +1,13 @@
 <div id="{{ ajax_divname }}"></div>
 
 <script type='text/javascript'>
+    function _remove_spinner() {
+        $(".spinner-border").fadeOut()
+        let content = document.getElementById('content');
+        content.classList.remove("invisible")
+        let row = document.querySelectorAll('[data-username="{{request.user.username}}"]')[0];
+        row.classList.add("bg-light");
+    }
 
     function _replace_links_{{ ajax_divname }}(url, elements) {
         for (var x = 0; x < elements.length; x++) {
@@ -26,6 +33,8 @@
 
                     _replace_links_{{ ajax_divname }}(url, div.getElementsByTagName('TH'));
                     _replace_links_{{ ajax_divname }}(url, div.getElementsByClassName('pagination'));
+
+                    _remove_spinner()
                 }
             }
         };
